@@ -1,26 +1,57 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* Fonts will be set in global.css.
+  To avoid linker error, the fonts were set below. */
+  --font-default-rubik: system-ui, sans-serif;
+  --font-highlight-ibm: monospace;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Background */
+  --background: #ffffff;
+  --background-secondary: #d8d8d8;
+  --background-tertiary: #aeaeae;
+
+  /* Text & props */
+  --foreground: #171717;
+  --foreground-dimmed: #202020;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Background */
+    --background: #000000;
+    --background-secondary: #1e1e1e;
+    --background-tertiary: #373737;
+
+    /* Text & props */
+    --foreground: #ffffff;
+    --foreground-dimmed: #d3d3d3;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-default-rubik), serif;
+}
+.font-highlight {
+  font-family: var(--font-highlight-ibm), serif;
+}
+.text, .text-dimmed, .text-subordinary {
+  font-family: var(--font-default-rubik), serif;
+  color: var(--foreground);
+}
+.text-dimmed, .text-subordinary {
+  color: var(--foreground-dimmed);
+}
+.text-subordinary {
+  font-size: 70%;
+  padding: 1%;
+}
+
+.title {
+  font-family: var(--font-default-rubik), serif;
+  font-size: 200%;
+  font-weight: 500;
+  line-height: 1.2;
 }
