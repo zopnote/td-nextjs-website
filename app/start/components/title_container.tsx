@@ -2,9 +2,10 @@ import {LocationFilled} from "@carbon/icons-react";
 import TabBar from "@/app/start/components/title_container/tabbar";
 import Image from "next/image";
 interface TitleContainerProperties {
+    children?: React.ReactNode;
     height?: string;
 }
-export default function TitleContainer({height}: TitleContainerProperties) {
+export default function TitleContainer({height, children}: TitleContainerProperties) {
     return (
         <div style={{display: "flex", flexDirection: "column",
             justifyContent: "space-around",
@@ -34,6 +35,7 @@ export default function TitleContainer({height}: TitleContainerProperties) {
                 margin: 0,
                 padding: 0}}>
                 <TabBar/>
+                {children}
             </div>
         </div>
     );

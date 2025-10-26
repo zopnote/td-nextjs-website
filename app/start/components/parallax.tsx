@@ -6,16 +6,17 @@ import "./parallax.css";
 interface HeroProperties {
   content?: React.ReactNode;
   height?: string;
+  invertedScroll?: boolean;
 }
 
-function Parallax({ content, height = "60vh" }: HeroProperties) {
+function Parallax({ content, height = "60vh", invertedScroll = false }: HeroProperties) {
   const parallaxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       if (parallaxRef.current) {
         const scrolled = window.scrollY;
-        const parallaxSpeed = 0.5;
+        const parallaxSpeed = invertedScroll ? -0.5 : 0.5;
         parallaxRef.current.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
       }
     };
