@@ -16,19 +16,6 @@
   --foreground-dimmed: #202020;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Background */
-    --background: #000000;
-    --background-secondary: #1e1e1e;
-    --background-tertiary: #373737;
-
-    /* Text & props */
-    --foreground: #ffffff;
-    --foreground-dimmed: #d3d3d3;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);

@@ -1,27 +1,23 @@
 'use client';
 
-import { MapContainer, TileLayer, Circle } from 'react-leaflet';
+import {MapContainer, TileLayer, Circle } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
 export default function ServiceMap() {
 
     const delmenhorstCenter: [number, number] = [53.0492, 8.6151];
     const serviceRadius = 5800;
-
     return (
-        <>
-            <div className="w-full h-96 rounded-lg overflow-hidden shadow-lg">
+        <div className="w-full h-full align-middle flex flex-col">
+            <div className="w-full h-full overflow-hidden">
                 <MapContainer
-                    zoomControl={false}
+                    zoomControl={true}
                     attributionControl={false}
-                    center={[
-                        delmenhorstCenter[0],
-                        delmenhorstCenter[1] -0.020
-                    ]}
-                    zoom={11.5}
+                    center={delmenhorstCenter}
+                    zoom={12.5}
                     zoomSnap={0.45}
                     zoomDelta={1}
-                    scrollWheelZoom={true}
+                    scrollWheelZoom={false}
                     className="h-full w-full"
                 >
                     <TileLayer
@@ -33,16 +29,18 @@ export default function ServiceMap() {
                         center={delmenhorstCenter}
                         radius={serviceRadius}
                         pathOptions={{
-                            color: '#202020',
-                            fillColor: 'rgb(0,0,0)',
-                            fillOpacity: 0.2,
+                            color: 'rgb(0,0,0)',
+                            fillColor: '#000000',
+                            fillOpacity: 0.1,
                             weight: 2,
                         }}
                     />
                 </MapContainer>
+
             </div>
-            <p className={"text-subordinary"}>© Copyright OpenStreetMap</p>
-        </>
+
+            <p className={"text-subordinary"} style={{alignSelf:"start"}}>© Copyright OpenStreetMap</p>
+        </div>
 
     );
 }

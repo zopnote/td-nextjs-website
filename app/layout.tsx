@@ -15,8 +15,8 @@ const highlightFontIBM = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "Teschnische Dienstleistungen in Delmenhorst",
-    description: "Informationen zum Angebot zu Technischen Dienstleistungen und Support in Delmenhorst aus erster Hand.",
+    title: "Technischer Service in Delmenhorst",
+    description: "Informationen zum Angebot zu technischen Dienstleistungen und Support in Delmenhorst aus erster Hand.",
 };
 
 export default function RootLayout({
