@@ -17,7 +17,7 @@ export default function TabBar() {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        const handleResize = () => setIsMobile(window.innerWidth < 1100);
+        const handleResize = () => setIsMobile(window.innerWidth < 1000);
         handleResize(); // initial check
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);

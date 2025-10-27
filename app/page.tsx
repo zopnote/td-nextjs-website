@@ -8,10 +8,19 @@ import {useEffect, useState} from "react";
 
 export default function Home() {
 
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 786);
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     const [isHigh, setIsHigh] = useState(false);
 
     useEffect(() => {
-        const handleResize = () => setIsHigh(window.innerHeight > 800);
+        const handleResize = () => setIsHigh(isMobile ? window.innerHeight > 800 : window.innerHeight > 720);
         handleResize();
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
@@ -19,7 +28,7 @@ export default function Home() {
   return (
       <>
           <Parallax
-              height={isHigh ? "100vh" : "800px"}
+              height={isHigh ? "100vh" : isMobile ? "800px" : "720px"}
               invertedScroll={true} content={<TitleWindow/>} />
           <MapWindow/>
           <DiscountWindow/>
