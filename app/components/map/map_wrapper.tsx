@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 
-const ServiceMap = dynamic(() => import('./map'), {
+const MapClient = dynamic(() => import('./map'), {
     ssr: false,
     loading: () => (
         <div className="w-full h-full" style={{color: "var(--background)"}}>
@@ -11,6 +11,6 @@ const ServiceMap = dynamic(() => import('./map'), {
     )
 });
 
-export default function ServiceMapWrapper() {
-    return <ServiceMap />;
+export default function Map() {
+    return <MapClient/>;
 }

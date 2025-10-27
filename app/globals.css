@@ -15,7 +15,9 @@
   --foreground: #171717;
   --foreground-dimmed: #202020;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 body {
   background: var(--background);
   color: var(--foreground);

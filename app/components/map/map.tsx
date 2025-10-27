@@ -3,7 +3,7 @@
 import {MapContainer, TileLayer, Circle } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
-export default function ServiceMap() {
+export default function MapClient() {
 
     const delmenhorstCenter: [number, number] = [53.0492, 8.6151];
     const serviceRadius = 5800;
@@ -30,15 +30,13 @@ export default function ServiceMap() {
                         radius={serviceRadius}
                         pathOptions={{
                             color: 'rgb(0,0,0)',
-                            fillColor: '#000000',
+                            fillColor: 'rgba(0,0,0,0)',
                             fillOpacity: 0.1,
                             weight: 2,
                         }}
                     />
                 </MapContainer>
-
             </div>
-
             <p className={"text-subordinary"} style={{alignSelf:"start"}}>© Copyright OpenStreetMap</p>
         </div>
 
