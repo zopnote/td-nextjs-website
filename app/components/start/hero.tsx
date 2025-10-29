@@ -1,15 +1,15 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import "./parallax.css";
+import "./hero.css";
+import TitleContainer from "@/app/components/start/title_container";
 
 interface HeroProperties {
-  content?: React.ReactNode;
   height?: string;
   invertedScroll?: boolean;
 }
 
-function Parallax({ content, height = "60vh", invertedScroll = false }: HeroProperties) {
+function Hero({ height = "60vh", invertedScroll = false }: HeroProperties) {
   const parallaxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -26,12 +26,12 @@ function Parallax({ content, height = "60vh", invertedScroll = false }: HeroProp
   }, []);
 
   return (
-    <section className="parallax-container" style={{ height }}>
-      <div ref={parallaxRef} className="parallax-content">
-          {content}
+    <section className="hero-container" style={{ height: height }}>
+      <div ref={parallaxRef} className="hero-content">
+          <TitleContainer/>
       </div>
     </section>
   );
 }
 
-export default Parallax;
+export default Hero;

@@ -1,6 +1,5 @@
 'use client';
-import TitleWindow from "@/app/components/start/title_container";
-import Parallax from "@/app/components/parallax";
+ import Hero from "@/app/components/start/hero";
 import DiscountWindow from "@/app/components/discount/discount_window";
 import MapWindow from "@/app/components/map/map_window";
 import {useEffect, useState} from "react";
@@ -27,28 +26,11 @@ export default function Home() {
     }, []);
   return (
       <>
-          <Parallax
+          <Hero
               height={isHigh ? "100vh" : isMobile ? "800px" : "720px"}
-              invertedScroll={true} content={<TitleWindow/>} />
+              invertedScroll={true} />
           <MapWindow/>
           <DiscountWindow/>
-          <div>
-              <p className={"title p-3"}>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                  sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-                  Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-                  invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-                  et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-                  dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-                  invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
-                  duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-                  amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                  ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
-                  dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-                  amet.</p>
-          </div>
       </>
   );
 }

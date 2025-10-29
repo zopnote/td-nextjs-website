@@ -40,6 +40,7 @@ body {
 
 .title {
   font-family: var(--font-default-rubik), serif;
+  color: var(--foreground);
   font-size: 200%;
   font-weight: 500;
   line-height: 1.2;

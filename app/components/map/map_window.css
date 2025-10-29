@@ -1,2 +1,2 @@
 
-.map-window-container { height: 90vh; }
+.map-window-container { height: 90vh; align-content: center; align-items: center; flex-direction: column;}

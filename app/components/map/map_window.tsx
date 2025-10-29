@@ -4,8 +4,8 @@ import Info from "@/app/components/map/info";
 
 export default function MapWindow() {
     return (
-        <div id={"map"} className={"map-window-container"}>
-            <div style={{height: "60vh"}} >
+        <div className={"w-full h-full align-middle flex flex-col"}>
+            <div style={{height: "50vh"}} >
                 <Map/>
             </div>
             <Info/>

@@ -1,13 +1,21 @@
 export default function Info() {
     return (
-        <div>
-            <p id="map" className={"info-title"}>
+        <div style={{
+            padding: 15,
+            width: "70vw",
+            alignSelf: "center",
+            flexDirection: "column",
+            flex: "none"
+        }}>
+            <p id="map" className={"title"}>
                 In Delmenhorst ohne Anfahrtskosten! In der Umgebung Pauschale.
             </p>
-            <p className={"info-text"}>
-                In Delmenhorst ohne Anfahrtskosten! In der Umgebung Pauschale.
+            <div style={{height: "10px"}}></div>
+            <p className={"text"}>
+                Supportdienstleistungen vor Ort in Delmenhorst sind ohne Anfahrtspauschale.
+                Außerhalb der Stadt, in Ganderkesee, Schlutter, Hoyerswege, Schönemoor,
+                Schierbrok, Hasbergen, Stenum und Almsloh bestehen Anfahrtskosten von 10 Euro.
             </p>
-
         </div>
     );
 }

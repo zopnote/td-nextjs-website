@@ -1,5 +1,5 @@
-import {LocationFilled} from "@carbon/icons-react";
-import TabBar from "@/app/components/start/components/tabbar";
+import {LocationFilled, PhoneFilled} from "@carbon/icons-react";
+import TabBar from "@/app/components/start/tabbar";
 import Image from "next/image";
 import {ReactTyped} from "react-typed";
 import {useEffect, useState} from "react";
@@ -44,20 +44,24 @@ export default function TitleContainer({height, children}: TitleContainerPropert
                     height={298}
                     priority={true}
                 />
-                <Link className={"text-subordinary"}
-                      onMouseEnter={() => setHover(true)}
-                      onMouseLeave={() => setHover(false)}
-                      href={"#map"} style={{
-                    display: "flex",
-                    color: hover ? "#9a9a9a" : "black",
-                    flexDirection: "row",
-                    alignItems: "center",
-                    fontSize: "1rem",
-                    padding: 5,
-                }
-                }>
-                    <LocationFilled size="32" style={{padding: 7}}/>Delmenhorst  & Umgebung
-                </Link>
+                <div className={"flex flex-row items-center justify-center"}>
+                    <Link className={"text-subordinary"}
+                          onMouseEnter={() => setHover(true)}
+                          onMouseLeave={() => setHover(false)}
+                          href={"#map"} style={{
+                        display: "flex",
+                        color: hover ? "#9a9a9a" : "black",
+                        flexDirection: "row",
+                        alignItems: "center",
+                        fontSize: "1rem",
+                        padding: 5,
+                    }
+                    }>
+                        <LocationFilled size="22"/><div style={{width: "5px"}}></div>Delmenhorst & Umgebung
+                    </Link>
+                    <div style={{width: "5px"}}></div>
+                    <PhoneFilled size="24"/><div style={{width: "5px"}}></div>(04221) 2922185
+                </div>
             </header>
 
             <hr className={"border-primary"} style={{width: "50vw", border: "none", height: "5vw"}}/>
