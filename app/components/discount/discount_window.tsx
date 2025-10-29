@@ -7,19 +7,17 @@ function createServiceList(items: string[]) {
             height: "3.5rem",
             fontSize: "1.5rem",
             fontWeight: "400",
+            width: "100%",
             lineHeight: "1.5rem",
             color: "#111",
-            borderStyle: "solid",
-            borderWidth: "0.1rem",
             alignItems: "center",
             justifyContent: "start",
         }}>
             <div style={{
-                width: "3rem",
-                height: "3rem",
-                alignSelf: "center",
-            }}><CheckmarkFilled size={32} /></div>
-            <div style={{width: "7px"}}/>
+                width: "2.5rem",
+                height: "2.5rem",
+                alignSelf: "end",
+            }}><Checkmark size={32} /></div>
             {item}
         </div>
     ));
@@ -83,7 +81,7 @@ export default function DiscountWindow() {
         <section
             ref={containerRef}
             style={{
-                height: "70vh",
+                height: isMobile ? "60rem" : "50rem",
                 position: "relative",
                 width: "100%",
                 overflow: "hidden",
@@ -98,11 +96,11 @@ export default function DiscountWindow() {
                 style={{
                     width: "100%",
                     height: "100%",
-                    willChange: "transform",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
                     alignItems: "center",
+                    willChange: "transform",
                     color: "#111",
                     transition: "transform 0.05s linear"
                 }}
@@ -118,16 +116,23 @@ export default function DiscountWindow() {
                         <div style={{ flex: 1 }}>
                             {createServiceList([
                                 "Internet, WLAN & Mobilfunk",
-                                "Netzwerk- und Routerkonfiguration",
-                                "Fernseher und Drucker",
+                                "Netzwerkkonfiguration",
+                                "Fernseher & Drucker",
                                 "Alle Betriebssysteme",
-                                "Desktop und Laptop",
+                                "Desktop & Laptop",
+                                "iPhone & Android",
+                                "Web- & Appentwicklung"
                             ])}
                         </div>
                         <div style={{ flex: 1 }}>
                             {createServiceList([
                                 "PC Hardware & Software",
-                                "Installation von Software"
+                                "Installation von Software",
+                                "Kaufberatung",
+                                "Virusentfernung & Schutz",
+                                "Installation",
+                                "Reperatur & Wartung",
+                                "PC-Zusammenbau",
                             ])}
                         </div>
                     </div>

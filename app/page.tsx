@@ -3,6 +3,7 @@
 import DiscountWindow from "@/app/components/discount/discount_window";
 import MapWindow from "@/app/components/map/map_window";
 import {useEffect, useState} from "react";
+import DevelopmentWindow from "@/app/components/development/development_window";
 
 
 export default function Home() {
@@ -31,6 +32,7 @@ export default function Home() {
               invertedScroll={true} />
           <MapWindow/>
           <DiscountWindow/>
+          <DevelopmentWindow/>
       </>
   );
 }

@@ -7,7 +7,7 @@ import {useEffect, useState} from "react";
 const tabs = [
     { label: " Zum Serviceangebot", href: "#discount", icon: <Catalog size={28}/> },
     { label: " Maßgeschneiderte PCs", href: "#pc", icon: <ToolKit size={28}/> },
-    { label: " Web- & Appentwicklung", href: "#settings", icon: <ArrayObjects size={28}/> },
+    { label: " Web- & Appentwicklung", href: "#dev", icon: <ArrayObjects size={28}/> },
     { label: " Preisliste", href: "#explore", icon: <CurrencyEuro size={28}/> },
 ];
 

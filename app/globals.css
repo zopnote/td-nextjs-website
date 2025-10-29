@@ -27,6 +27,7 @@ body {
   font-family: var(--font-highlight-ibm), serif;
 }
 .text, .text-dimmed, .text-subordinary {
+  font-size: 1.5rem;
   font-family: var(--font-default-rubik), serif;
   color: var(--foreground);
 }
