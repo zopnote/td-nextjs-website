@@ -22,6 +22,8 @@ jobs:
         run: npm ci
 
       - name: Build Next.js
+        env:
+          NEXT_PUBLIC_OPENMAPTILES_API_KEY: ${{ secrets.NEXT_PUBLIC_OPENMAPTILES_API_KEY }}
         run: npm run build
 
       - name: Archive production files
