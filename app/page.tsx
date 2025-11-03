@@ -8,19 +8,13 @@ import DevelopmentWindow from "@/app/components/development/development_window";
 
 export default function Home() {
 
-    const [isMobile, setIsMobile] = useState(false);
-
+    const [windowWidth, setWindowWidth] = useState(0);
+    const [windowHeight, setWindowHeight] = useState(0);
     useEffect(() => {
-        const handleResize = () => setIsMobile(window.innerWidth < 786);
-        handleResize();
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
-    const [isHigh, setIsHigh] = useState(false);
-
-    useEffect(() => {
-        const handleResize = () => setIsHigh(isMobile ? window.innerHeight > 800 : window.innerHeight > 720);
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+            setWindowHeight(window.innerHeight);
+        }
         handleResize();
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
@@ -28,7 +22,7 @@ export default function Home() {
   return (
       <>
           <Hero
-              height={isHigh ? "100vh" : isMobile ? "800px" : "720px"}
+              height={windowWidth > 850 ? (windowHeight > 600 ? "100vh" : windowWidth < 500 ? "860px" : "650px") : (windowWidth < 500 ? "860px" : "780px")}
               invertedScroll={true} />
           <DiscountWindow/>
           <div style={{height: "10vh"}}></div>

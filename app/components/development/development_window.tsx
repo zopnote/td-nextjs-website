@@ -6,7 +6,7 @@ export default function DevelopmentWindow() {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        const handleResize = () => setIsMobile(window.innerWidth < 1000);
+        const handleResize = () => setIsMobile(window.innerWidth < 1120);
         handleResize();
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);

@@ -10,6 +10,14 @@ interface TitleContainerProperties {
     height?: string;
 }
 export default function TitleContainer({height, children}: TitleContainerProperties) {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 620);
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
     const [hover, setHover] = useState(false);
 
     const [flexDirection, setFlexDirection] = useState<"row" | "column">("row");
@@ -64,35 +72,39 @@ export default function TitleContainer({height, children}: TitleContainerPropert
                 </div>
             </header>
 
-            <hr className={"border-primary"} style={{width: "50vw", border: "none", height: "5vw"}}/>
-            <div className={"title"} style={{
-                alignSelf:"start",
-                fontSize: "2.5rem",
-                fontWeight: "bold",
-                width: "60vw",
-                padding: 15
+            <hr style={{width: "50vw", border: "none", height: isMobile ? "10vw" : "5vw"}}/>
+            <div style={{
+                alignSelf: "center",
             }}>
-                Probleme mit dem{" "}<ReactTyped
-                strings={[
-                    "PC?",
-                    "Handy?",
-                    "Fernseher?",
-                    "Router?",
-                    "WLAN?",
-                    "Drucker?",
-                ]}
-                typeSpeed={100}
-                backSpeed={100}
-                backDelay={1500}
-                loop
-            />
-            </div>
-            <div className={"title"} style={{
-                alignSelf:"start",
-                width: "60vw",
-                padding: 15
-            }}>
-                Schnelle Hilfe und günstiger Service! Sparen Sie sich Zeit und Geld.
+                <div className={"title"} style={{
+                    alignSelf:"center",
+                    fontSize: "2.5rem",
+                    fontWeight: "bold",
+                    width: "70vw",
+                    padding: 15
+                }}>
+                    Probleme mit dem{" "}<ReactTyped
+                    strings={[
+                        "PC?",
+                        "Handy?",
+                        "Fernseher?",
+                        "Router?",
+                        "WLAN?",
+                        "Drucker?",
+                    ]}
+                    typeSpeed={100}
+                    backSpeed={100}
+                    backDelay={1500}
+                    loop
+                />
+                </div>
+                <div className={"title"} style={{
+                    alignSelf:"start",
+                    width: "60vw",
+                    padding: 15
+                }}>
+                    Schnelle Hilfe und günstiger Service! Sparen Sie sich Zeit und Geld.
+                </div>
             </div>
 
             <hr className={"border-primary"} style={{width: "50vw", border: "none", height: "5vw"}}/>

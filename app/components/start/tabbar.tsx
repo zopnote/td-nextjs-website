@@ -14,10 +14,19 @@ const tabs = [
 
 export default function TabBar() {
     const [hoveredTab, setHoveredTab] = useState<string | null>(null);
-    const [isMobile, setIsMobile] = useState(false);
+    const [isSmallest, setIsSmallest] = useState(false);
 
     useEffect(() => {
-        const handleResize = () => setIsMobile(window.innerWidth < 1000);
+        const handleResize = () => setIsSmallest(window.innerWidth < 600);
+        handleResize(); // initial check
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    const [isSmaller, setIsSmaller] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => setIsSmaller(window.innerWidth < 1000);
         handleResize(); // initial check
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
@@ -25,9 +34,9 @@ export default function TabBar() {
 
     return (
         <div className="h-full w-full p-2">
-            {isMobile ? (
+            {isSmaller ? (
                 // Mobile: 2x2 Grid
-                <div className="grid grid-cols-2 gap-2">
+                <div className={isSmallest ? "flex flex-col" : "grid grid-cols-2 gap-2"}>
                     {tabs.map((tab) => (
                         <Link
                             key={tab.href}
@@ -38,12 +47,28 @@ export default function TabBar() {
                         >
                             <div className="flex flex-row items-center justify-center" style={{
                                 fontWeight: "400",
-                                color: hoveredTab === tab.href ? "#717171" : "black",
+                                width: "100%",
+                                borderRadius: "10px",
+                                color: hoveredTab === tab.href ? "#616161" : "black",
                             }}>
-                                {tab.icon}<div style={{
-                                    width: "10px",
+                                <div style={{
+                                    width: isSmallest ? "0vw" : "3vw",
                                 }}></div>
-                                {tab.label}</div>
+                                <div style={{
+                                    width: "28px",
+                                    height: "28px",
+                                }}>
+                                    {tab.icon}
+                                </div>
+                                <div style={{
+                                    width: "3vw",
+                                }}></div>
+                                {tab.label}
+
+                                <div style={{
+                                    width: isSmallest ? "5vw" : "0vw",
+                                }}></div>
+                            </div>
                         </Link>
                     ))}
                 </div>
