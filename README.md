@@ -1,4 +1,9 @@
-## NextJS Website for own small business
+# TECHNIKSERVICE SIEBERT
+![img.png](.github/img.png)
+
+---
+
+### NextJS Website for own small business
 I own a small German business for technical service that im doing sideways.
 For this I created this website.
 (Default NextJS Stack)
