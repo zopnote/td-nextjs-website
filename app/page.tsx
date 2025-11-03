@@ -30,8 +30,10 @@ export default function Home() {
           <Hero
               height={isHigh ? "100vh" : isMobile ? "800px" : "720px"}
               invertedScroll={true} />
-          <MapWindow/>
           <DiscountWindow/>
+          <div style={{height: "10vh"}}></div>
+          <MapWindow/>
+          <div style={{height: "10vh"}}></div>
           <DevelopmentWindow/>
       </>
   );

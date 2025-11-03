@@ -9,7 +9,7 @@ export default function MapClient() {
     const serviceRadius = 5800;
     return (
         <div className="w-full h-full align-middle flex flex-col">
-            <div className="w-full h-full overflow-hidden">
+            <div id={"map"} className="w-full h-full overflow-hidden">
                 <MapContainer
                     zoomControl={true}
                     attributionControl={false}
@@ -22,22 +22,22 @@ export default function MapClient() {
                 >
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        url={`https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}.png?apiKey=${process.env.NEXT_PUBLIC_OPENMAPTILES_API_KEY}`}
                     />
 
                     <Circle
                         center={delmenhorstCenter}
                         radius={serviceRadius}
                         pathOptions={{
-                            color: 'rgb(0,0,0)',
-                            fillColor: 'rgba(0,0,0,0)',
-                            fillOpacity: 0.1,
+                            color: 'rgba(0,30,154,0.19)',
+                            fillColor: 'rgba(171,184,255,0.76)',
+                            fillOpacity: 0.15,
                             weight: 2,
                         }}
                     />
                 </MapContainer>
             </div>
-            <p className={"text-subordinary"} style={{alignSelf:"start"}}>© Copyright OpenStreetMap</p>
+            <p className={"text-subordinary"} style={{alignSelf:"start"}}>Powered by <a href="https://www.geoapify.com/" target="_blank">Geoapify</a> | <a href="https://openmaptiles.org/" target="_blank">© OpenMapTiles</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap</a> contributors</p>
         </div>
 
     );

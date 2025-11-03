@@ -7,7 +7,7 @@ export default function Info() {
             flexDirection: "column",
             flex: "none"
         }}>
-            <p id="map" className={"title"}>
+            <p className={"title"}>
                 In Delmenhorst ohne Anfahrtskosten! In der Umgebung Pauschale.
             </p>
             <div style={{height: "10px"}}></div>
