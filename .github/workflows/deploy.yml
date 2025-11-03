@@ -25,7 +25,7 @@ jobs:
         run: npm run build
 
       - name: Archive production files
-        run: tar -czf site.tar.gz .next package.json next.config.js public
+        run: tar -czf site.tar.gz .next package.json public
 
       - name: Copy files to server
         uses: appleboy/scp-action@v0.1.7
