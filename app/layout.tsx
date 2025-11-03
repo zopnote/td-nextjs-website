@@ -15,8 +15,8 @@ const highlightFontIBM = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "Technischer Service in Delmenhorst",
-    description: "Informationen zum Angebot zu technischen Dienstleistungen und Support in Delmenhorst aus erster Hand.",
+    title: "IT / Siebert, L. - Technikservice in Delmenhorst",
+    description: "Informationen zum Angebot zu technischen Dienstleistungen und Support vor Ort in Delmenhorst aus erster Hand für günstige Preise.",
 };
 
 export default function RootLayout({

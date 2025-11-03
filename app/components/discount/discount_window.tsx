@@ -183,7 +183,11 @@ export default function DiscountWindow() {
                         </div>
                     ))}
                 </div>
+
             </div>
+            <div style={{
+                height: "8vh"
+            }}></div>
 
         </div>
     );
