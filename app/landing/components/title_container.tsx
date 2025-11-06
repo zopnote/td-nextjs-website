@@ -1,24 +1,16 @@
-import {LocationFilled, PhoneFilled} from "@carbon/icons-react";
-import TabBar from "@/app/components/start/tabbar";
+import TabBar from "@/lib/tabbar";
 import Image from "next/image";
 import {ReactTyped} from "react-typed";
 import {useEffect, useState} from "react";
-import Link from "next/link";
+import {useWindowAttributes} from "@/hooks/window_attributes";
 
 interface TitleContainerProperties {
     children?: React.ReactNode;
     height?: string;
 }
 export default function TitleContainer({height, children}: TitleContainerProperties) {
-    const [isMobile, setIsMobile] = useState(false);
+    const {isMobile: isMobile, width: windowWidth} = useWindowAttributes(620);
 
-    useEffect(() => {
-        const handleResize = () => setIsMobile(window.innerWidth < 620);
-        handleResize();
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
-    const [hover, setHover] = useState(false);
 
     const [flexDirection, setFlexDirection] = useState<"row" | "column">("row");
     useEffect(() => {
@@ -43,6 +35,7 @@ export default function TitleContainer({height, children}: TitleContainerPropert
                 flexDirection: flexDirection,
                 alignItems: "center",
                 width: "100%",
+                height: "fit-content",
                 justifyContent: "space-around"
             }}>
                 <Image
@@ -52,27 +45,10 @@ export default function TitleContainer({height, children}: TitleContainerPropert
                     height={298}
                     priority={true}
                 />
-                <div className={"flex flex-row items-center justify-center"}>
-                    <Link className={"text-subordinary"}
-                          onMouseEnter={() => setHover(true)}
-                          onMouseLeave={() => setHover(false)}
-                          href={"#map"} style={{
-                        display: "flex",
-                        color: hover ? "#9a9a9a" : "black",
-                        flexDirection: "row",
-                        alignItems: "center",
-                        fontSize: "1rem",
-                        padding: 5,
-                    }
-                    }>
-                        <LocationFilled size="22"/><div style={{width: "5px"}}></div>Delmenhorst & Umgebung
-                    </Link>
-                    <div style={{width: "5px"}}></div>
-                    <PhoneFilled size="24"/><div style={{width: "5px"}}></div>(04221) 2922185
-                </div>
+
             </header>
 
-            <hr style={{width: "50vw", border: "none", height: isMobile ? "10vw" : "5vw"}}/>
+            <hr style={{width: "50vw", border: "none", height: isMobile ? "0vh" : "5vh"}}/>
             <div style={{
                 alignSelf: "center",
             }}>
@@ -80,7 +56,7 @@ export default function TitleContainer({height, children}: TitleContainerPropert
                     alignSelf:"center",
                     fontSize: "2.5rem",
                     fontWeight: "bold",
-                    width: "70vw",
+                    width: "80vw",
                     padding: 15
                 }}>
                     Probleme mit dem{" "}<ReactTyped
@@ -100,7 +76,7 @@ export default function TitleContainer({height, children}: TitleContainerPropert
                 </div>
                 <div className={"title"} style={{
                     alignSelf:"start",
-                    width: "60vw",
+                    width: "80vw",
                     padding: 15
                 }}>
                     Schnelle Hilfe und günstiger Service! Sparen Sie sich Zeit und Geld.

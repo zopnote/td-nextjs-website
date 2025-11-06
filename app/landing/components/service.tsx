@@ -1,28 +1,13 @@
-import {CheckmarkFilled, Laptop, Time} from "@carbon/icons-react";
+import {CheckmarkFilled, Laptop} from "@carbon/icons-react";
 import {useEffect, useState} from "react";
+import OpeningTimes from "@/app/landing/components/opening_times";
+import Contact from "@/app/landing/components/contact";
+import Link from "next/link";
 
-type OpeningHour = {
-    day: string;
-    justClosed: boolean;
-    hoursStart: number;
-    minutesStart: number;
-    hoursEnd: number;
-    minutesEnd: number;
-};
 
-const openingHours: OpeningHour[] = [
-    { day: "Montag", hoursStart: 15, minutesStart: 30, hoursEnd: 20, minutesEnd: 0, justClosed: false},
-    { day: "Dienstag", hoursStart: 13, minutesStart: 50, hoursEnd: 20, minutesEnd: 0, justClosed: false},
-    { day: "Mittwoch", hoursStart: 0, minutesStart: 0, hoursEnd: 0, minutesEnd: 0, justClosed: true },
-    { day: "Donnerstag", hoursStart: 15, minutesStart: 50, hoursEnd: 20, minutesEnd: 0, justClosed: false},
-    { day: "Freitag", hoursStart: 13, minutesStart: 30, hoursEnd: 20, minutesEnd: 0, justClosed: false},
-    { day: "Samstag", hoursStart: 8, minutesStart: 0, hoursEnd: 20, minutesEnd: 0, justClosed: false},
-    { day: "Sonntag", hoursStart: 8, minutesStart: 0, hoursEnd: 18, minutesEnd: 0, justClosed: false},
-];
 
 
 function createServiceList(items: string[]) {
-    const now = new Date();
     return items.map((item, index) => (
         <div
             key={index}
@@ -65,7 +50,7 @@ function createServiceList(items: string[]) {
     ));
 }
 
-export default function DiscountWindow() {
+export default function Service() {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
@@ -99,7 +84,7 @@ export default function DiscountWindow() {
                 >
                     <Laptop size={38} />
                     <div style={{ width: 12 }} />
-                    Serviceangebot
+                    Services
                 </div>
                 <div style={{ height: "3vh" }} />
                 <div
@@ -123,71 +108,67 @@ export default function DiscountWindow() {
                         "Web- & Appentwicklung",
                         "PC Hardware & Software",
                         "Installation von Software",
+                        "Einrichtung von Geräten",
                         "Kaufberatung",
                         "Virusentfernung & Schutz",
-                        "Installation",
-                        "Reparatur & Wartung",
+                        "Reparatur¹ & Wartung",
                         "PC-Zusammenbau",
                     ])}
                 </div>
-                <div style={{ height: "12vh" }} />
-                <div
-                    className="title flex flex-row"
-                    style={{ color: "#fff",
-                        alignSelf: isMobile ? "center": "start", }}
-                >
-                    <Time size={38} />
-                    <div style={{ width: 12 }} />
-                    Öffnungszeiten
-                </div>
-                <div style={{ height: "3vh" }} />
+                <div style={{ height: "6vh" }} />
                 <div style={{
-                    alignSelf: isMobile ? "center": "start",
-                    width: isMobile ? "60vw" : "40vw"
+                    width: "100%",
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: "center",
                 }}>
-                    {openingHours.map((value) => (
-                        <div key={value.day} style={{
-                            width: "intrinsic",
-                            height: "fit-content",
-                            flexDirection: "row",
-                            alignContent: "space-between",
-                            justifyContent: "space-between",
-                            display: "flex"
+                    <div className={"flex-col flex"} style={{
+                        width: "100%",
+                    }}>
+                            <span className={"text"} style={{
+                                color: "#ffffff",
+                            }}>
+                                <strong>Bereits ab 25 EUR inkl. MwSt³</strong>
+                            </span>
+                        <div/>
+                        <span className={"text"} style={{fontSize: "smaller", color: "#ffffff"}}>
+                                Bei großen Anfragen ist ein Kostenvoranschlag möglich.
+                            </span>
+                    </div>
+                    <div style={isMobile ? {height: "30px"} : {width: "10vw"}}></div>
+                    <Link href={"prices/"}>
+                        <div className={"hover:bg-black flex flex-row"} style={{
+                            backgroundColor: "#0070f3",
+                            color: "#ffffff",
+                            width: "270px",
+                            height: "50px",
+                            fontSize: "1.5rem",
+                            fontWeight: "400",
+                            alignSelf: "start",
+                            borderRadius: "10px",
+                            cursor: "pointer",
                         }}>
-
+                            <div style={{width: "11%"}}></div>
                             <div style={{
-                                width: "fit-content",
-                                height: "fit-content",
-                                color: "white",
-                                border: "white",
-                                borderWidth: "0px",
-                                borderStyle: "solid",
-                                borderRadius: "10px",
-                                display: "flex",
-                                padding: "0.3rem",
-                                flexDirection: "row"
-                            }}>{value.day}</div>
-                            <div style={{
-                                width: "fit-content",
-                                height: "fit-content",
-                                color: "white",
-                                border: "white",
-                                borderWidth: "0px",
-                                borderStyle: "solid",
-                                borderRadius: "10px",
-                                display: "flex",
-                                padding: "0.5rem",
-                                flexDirection: "row"
-                            }}>{value.justClosed ? "Geschlossen" : value.hoursStart + " : "}{value.justClosed ? "" : value.minutesStart + " - "}{value.justClosed ? "" : value.hoursEnd + " : "}{value.justClosed ? "" : value.minutesEnd}</div>
-
+                                padding: "6px",
+                                width: "260px",
+                            }}>
+                                Preise betrachten
+                            </div>
                         </div>
-                    ))}
+                    </Link>
                 </div>
+                <div style={{ height: "20vh" }} />
+                <div className={isMobile ? "flex-col flex" : "flex-row flex"} style={{
+                    justifyContent: "space-between"
+                }}>
+                    <OpeningTimes/>
+                    <div style={isMobile ? { height: "9vh" } : { width: "5vw"}} />
+                    <Contact/>
 
+                </div>
             </div>
-            <div style={{
-                height: "8vh"
-            }}></div>
 
         </div>
     );

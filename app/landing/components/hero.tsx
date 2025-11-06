@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import "./hero.css";
-import TitleContainer from "@/app/components/start/title_container";
+import TitleContainer from "@/app/landing/components/title_container";
 
 interface HeroProperties {
   height?: string;

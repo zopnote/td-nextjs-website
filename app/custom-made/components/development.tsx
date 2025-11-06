@@ -1,4 +1,4 @@
-
+'use client';
 import {useEffect, useState} from "react";
 import {CheckmarkFilled, Code, LogoGithub} from "@carbon/icons-react";
 
@@ -24,7 +24,7 @@ export default function DevelopmentWindow() {
                 <div style={{
                     padding: 15,
                     height: "100%",
-                    width: "70vw",
+                    width: "85vw",
                     alignSelf: "center",
                     flexDirection: "column",
                     flex: "none",
@@ -88,7 +88,7 @@ export default function DevelopmentWindow() {
                             <span className={"text"} style={{
                                 color: "#ffffff",
                             }}>
-                                <strong>Ab 119 EUR inkl. MwSt</strong>
+                                <strong>Ab 119 EUR inkl. MwSt³</strong>
                             </span>
                             <div/>
                             <span className={"text"} style={{fontSize: "smaller", color: "#ffffff"}}>

@@ -1,0 +1,36 @@
+.container {
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: rgba(255, 255, 255, 0.46);
+  font-size: 0.7rem;
+}
+
+.spacer {
+  height: 10vh;
+}
+
+.content {
+  padding: 1.5rem;
+  height: fit-content;
+  width: 90vw;
+  max-width: 960px;
+}
+
+.link {
+  color: #728da8;
+  border-bottom: solid 0.5px;
+}
+
+.bottomRow {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.columnLink {
+  font-size: 0.9rem;
+}

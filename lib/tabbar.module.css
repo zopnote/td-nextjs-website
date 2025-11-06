@@ -1,0 +1,94 @@
+.container {
+  height: 100%;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.grid-mobile {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  overflow: hidden;
+  gap: 0.2rem;
+}
+
+.flex-mobile {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-around {
+  display: flex;
+  justify-content: space-around;
+}
+
+.tab-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+
+.tab-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.tab-content.desktop {
+  padding: 10px;
+  border: transparent;
+}
+
+.tab-content.hovered-mobile {
+  color: #616161;
+}
+
+.tab-content.hovered-desktop {
+  color: #717171;
+}
+
+.tab-content.default {
+  color: black;
+}
+
+.spacer-small {
+  width: 3vw;
+}
+
+.spacer-tiny {
+  width: 10px;
+}
+
+.spacer-left-mobile {
+  width: 0vw;
+}
+
+.spacer-right-mobile {
+  width: 5vw;
+}
+
+.icon-container {
+  width: 28px;
+  height: 28px;
+}
+
+@media (max-width: 600px) {
+  .flex-mobile {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,58 @@
+
+.map-section {
+  height: 100%;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.05);
+}
+
+.map-window {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  will-change: transform;
+  color: #111;
+  transition: transform 0.05s linear;
+}
+
+.map-spacer {
+  height: 60vh;
+  width: 100%;
+}
+
+.copyright-disclaim {
+  align-self: start;
+}
+
+.info-map-space {
+  height: 5vh;
+}
+.info-title-space {
+  height: 2vh;
+}
+
+.info-container {
+  max-width: 80vw;
+  align-self: center;
+  flex-direction: column;
+  display: flex;
+}
+
+.info-checkmark-container {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  color: black;
+  font-size: 1.3rem;
+}
+
+.info-checkmark-spacer {
+  width: 7px;
+}
