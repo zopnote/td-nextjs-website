@@ -27,7 +27,7 @@ jobs:
         run: npm run build
 
       - name: Archive production files
-        run: tar -czf site.tar.gz .next package.json assets lib hooks
+        run: tar -czf site.tar.gz .next package.json assets lib hooks robots.txt sitemap.xml
 
       - name: Copy files to server
         uses: appleboy/scp-action@v0.1.7
