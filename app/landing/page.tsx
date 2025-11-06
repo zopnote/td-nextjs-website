@@ -11,6 +11,10 @@ export default function Landing() {
     const {width: windowWidth, height: windowHeight} = useWindowAttributes();
     return (
         <div>
+            <h1 style={{
+                maxHeight: "0px",
+                color: "white"
+            }}>PC Hilfe PC Support Handy Hilfe WLAN Technische Dienste Dienstleistungen Lenny Siebert in Delmenhorst</h1>
             <Hero
                 height={
                     windowWidth > 850 ? (windowHeight > 600 ? "100vh" :
