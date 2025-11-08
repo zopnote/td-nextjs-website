@@ -17,7 +17,7 @@ const LeafletMap = dynamic(() => Promise.resolve(LeafletMapComponent), {
 });
 
 function LeafletMapComponent() {
-    const {isMobile} = useWindowAttributes(730);
+    const {isMobile} = useWindowAttributes(600);
     const delmenhorstCenter: [number, number] = [53.0492, 8.6151];
     const serviceRadius = 5800;
 
@@ -28,11 +28,11 @@ function LeafletMapComponent() {
                     zoomControl={true}
                     attributionControl={false}
                     center={delmenhorstCenter}
-                    zoom={isMobile ? 11.5 : 12.5}
+                    zoom={11.5}
                     zoomSnap={0.45}
                     zoomDelta={1}
                     scrollWheelZoom={false}
-                    dragging={!isMobile}
+                    dragging={true}
                     className="h-full w-full"
                 >
                     <TileLayer

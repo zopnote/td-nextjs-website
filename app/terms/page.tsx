@@ -6,6 +6,7 @@ export default function Terms() {
         <div className={"flex flex-col"}>
             <div className="max-w-3xl mx-auto p-6 text-slate-800" style={{
                 width: "80vw",
+                minWidth: "400px",
                 alignSelf: "center",
                 justifySelf: "center"
             }}>
