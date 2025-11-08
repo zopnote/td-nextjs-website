@@ -15,17 +15,23 @@ export default function Landing() {
                 maxHeight: "0px",
                 color: "white"
             }}>PC Hilfe PC Support Handy Hilfe WLAN Technische Dienste Dienstleistungen Lenny Siebert in Delmenhorst</h1>
-            <Hero
-                height={
-                    windowWidth > 850 ? (windowHeight > 600 ? "100vh" :
-                            windowWidth < 500 ?
-                                "860px" : "650px")
-                        : (windowWidth < 620 ?
-                            windowWidth < 460 ?
-                                "960px" : "860px"
-                            : "700px")}
+            <div style={{
+                maxWidth: "1200px",
+                alignSelf: "center",
+                justifySelf: "center"
+            }}>
+                <Hero
+                    height={
+                        windowWidth > 850 ? (windowHeight > 600 ? "100vh" :
+                                windowWidth < 500 ?
+                                    "860px" : "650px")
+                            : (windowWidth < 620 ?
+                                windowWidth < 460 ?
+                                    "960px" : "860px"
+                                : "700px")}
 
-                invertedScroll={true} />
+                    invertedScroll={true} />
+            </div>
             <Discount/>
             <Footer/>
         </div>

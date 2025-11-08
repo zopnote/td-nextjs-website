@@ -9,7 +9,7 @@ interface TitleContainerProperties {
     height?: string;
 }
 export default function TitleContainer({height, children}: TitleContainerProperties) {
-    const {isMobile: isMobile, width: windowWidth} = useWindowAttributes(620);
+    const {isMobile: isMobile} = useWindowAttributes(620);
 
 
     const [flexDirection, setFlexDirection] = useState<"row" | "column">("row");
@@ -48,15 +48,17 @@ export default function TitleContainer({height, children}: TitleContainerPropert
 
             </header>
 
-            <hr style={{width: "50vw", border: "none", height: isMobile ? "0vh" : "5vh"}}/>
+            <hr style={{width: "50%", border: "none", height: isMobile ? "0vh" : "5vh"}}/>
             <div style={{
                 alignSelf: "center",
+                justifySelf: "center",
+                width: "80%",
+
             }}>
                 <div className={"title"} style={{
-                    alignSelf:"center",
+                    alignSelf:"start",
                     fontSize: "2.5rem",
                     fontWeight: "bold",
-                    width: "80vw",
                     padding: 15
                 }}>
                     Probleme mit dem{" "}<ReactTyped
@@ -76,7 +78,6 @@ export default function TitleContainer({height, children}: TitleContainerPropert
                 </div>
                 <div className={"title"} style={{
                     alignSelf:"start",
-                    width: "80vw",
                     padding: 15
                 }}>
                     Schnelle Hilfe und günstiger Service! Sparen Sie sich Zeit und Geld.
@@ -89,7 +90,9 @@ export default function TitleContainer({height, children}: TitleContainerPropert
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                width: '100%',
+                justifySelf:"center",
+                alignSelf:"center",
+                width: '80%',
                 margin: 0,
                 padding: 0}}>
                 <TabBar/>

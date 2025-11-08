@@ -20,11 +20,15 @@ export default function DevelopmentWindow() {
             }}
         >
             <div style={{height: "10vh"}}/>
-            <div className={"w-full align-middle flex flex-col"}>
+            <div className={"w-full align-middle flex flex-col"} style={{
+                maxWidth: "1300px",
+                justifySelf: "center",
+                alignSelf: "center"
+            }}>
                 <div style={{
                     padding: 15,
                     height: "100%",
-                    width: "85vw",
+                    width: "85%",
                     alignSelf: "center",
                     flexDirection: "column",
                     flex: "none",
@@ -95,7 +99,7 @@ export default function DevelopmentWindow() {
                                 Kostenvoranschlag möglich.
                             </span>
                         </div>
-                        <div style={isMobile ? {height: "30px"} : {width: "10vw"}}></div>
+                        <div style={isMobile ? {height: "30px"} : {width: "10%"}}></div>
                         <div className={"hover:bg-black flex flex-row"} style={{
                             backgroundColor: "#0070f3",
                             color: "#ffffff",

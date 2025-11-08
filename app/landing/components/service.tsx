@@ -70,6 +70,8 @@ export default function Service() {
                     alignSelf: "center",
                     display: "flex",
                     width: "80vw",
+                    maxWidth: "1200px",
+                    justifySelf: "center",
                     height: "fit-content",
                     flexDirection: "column",
                     backgroundColor: "rgb(0,0,0)",
