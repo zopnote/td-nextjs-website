@@ -4,8 +4,6 @@ import styles from "@/app/map/components/map.module.css";
 import { useParallaxScroll } from "@/hooks/parallax";
 import dynamic from "next/dynamic";
 import 'leaflet/dist/leaflet.css';
-import {Checkmark, CheckmarkFilled} from "@carbon/icons-react";
-import {useWindowAttributes} from "@/hooks/window_attributes";
 
 const MapContainer = dynamic(() => import("react-leaflet").then(mod => mod.MapContainer), { ssr: false });
 const TileLayer = dynamic(() => import("react-leaflet").then(mod => mod.TileLayer), { ssr: false });
@@ -17,7 +15,6 @@ const LeafletMap = dynamic(() => Promise.resolve(LeafletMapComponent), {
 });
 
 function LeafletMapComponent() {
-    const {isMobile} = useWindowAttributes(600);
     const delmenhorstCenter: [number, number] = [53.0492, 8.6151];
     const serviceRadius = 5800;
 
