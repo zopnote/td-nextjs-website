@@ -1,65 +1,37 @@
 'use client';
 import {useEffect, useState} from "react";
 import {CheckmarkFilled, Code, LogoGithub} from "@carbon/icons-react";
+import text from "./development.json";
+import styles from "./development.module.css";
+import {useWindowAttributes} from "@/hooks/window_attributes";
 
-export default function DevelopmentWindow() {
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        const handleResize = () => setIsMobile(window.innerWidth < 1120);
-        handleResize();
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
+export default function Development() {
+    const {isMobile} = useWindowAttributes(1120);
     return (
-        <div
-            id="dev"
-            className={"w-full h-full align-middle flex flex-col"}
-            style={{
-                backgroundColor: "#000000",
-            }}
-        >
-            <div style={{height: "10vh"}}/>
-            <div className={"w-full align-middle flex flex-col"} style={{
-                maxWidth: "1300px",
-                justifySelf: "center",
-                alignSelf: "center"
-            }}>
-                <div style={{
-                    padding: 15,
-                    height: "100%",
-                    width: "85%",
-                    alignSelf: "center",
-                    flexDirection: "column",
-                    flex: "none",
-                }}>
-                    <div
-                        className={"title flex-row flex"}
-                        style={{
-                            color: "#ffffff",
-                            alignItems: "center",
-                        }}>
-                            Günstige Umsetzung Ihrer Projekte!
+        <div id="dev" className={styles.rootContainer}>
+            <div className={styles.spacer}></div>
+            <div className={styles.alignmentContainer}>
+                <div className={styles.innerContainer}>
+                    <div className={`title flex-row flex ${styles.innerContainer}`}>
+                        {text.title}
                             <div style={{width: "12px"}}/>
                             <Code size={42}/>
                     </div>
-
                     <div style={{
                         height: isMobile ? "0px" : "25px"
                     }}></div>
                     <div className={isMobile ? "flex-col flex align-middle content-center" : "flex-row flex"}>
-
-                        {!isMobile ? <GithubProfile username={"zopnote"}/> : <></>}
+                        {!isMobile ? <GithubProfile username={text.githubUsername}/> : <></>}
                         <div style={isMobile ? {height: "60px"} : {width: "50px"}}></div>
                         <div className={"flex-col flex h-full w-full"}>
                             <div style={{height: isMobile ? "0px": "20px"}}></div>
                             <span className={"text"} style={{
                                 color: "#ffffff",
                             }}>
-                            Als Student und über mehrere Jahre konnte ich Erfahrungen aus Projekten sammeln. Ich entwickle, wenn nicht anders erwünscht, mit:
+                            {text.brief}
                         </span>
                             <div style={{height: isMobile ? "14px" : "7px"}}></div>
-                            {["Mobile & Desktop (Dart, Flutter / .NET)", "Web (NextJS - React, TSX, Tailwind)", "Server, Native & CLI (Go, Dart & C)"].map((tech, index) => (
+                            {text.technologies.map((tech, index) => (
                                 <div key={index} className={"flex-row flex p-2"} style={{color: "#ffffff"}}>
                                     <CheckmarkFilled size={24} style={{color: "#0070f3"}}/>
                                     <div style={{width: "7px"}}></div>
@@ -73,11 +45,8 @@ export default function DevelopmentWindow() {
                     <span className={"text"} style={{
                         color: "#ffffff",
                     }}>
-                        Ich entwickle Ihnen Websites, Server-, Desktop- und Mobilanwendungen.
-                        Dabei greife ich auf gewünschte Technologien zurück und halte mich an
-                        Ihr Design oder entwerfe ein eigenes für Sie. Ob modern, klassisch oder stilistisch,
-                        ich helfe Ihnen gerne mit Ihrer Idee. Wir können uns digital oder persönlich absprechen.
-                </span >
+                        {text.description}
+                </span>
                     <div style={{height: "30px"}}></div>
                     <div style={{
                         width: "100%",
@@ -92,11 +61,11 @@ export default function DevelopmentWindow() {
                             <span className={"text"} style={{
                                 color: "#ffffff",
                             }}>
-                                <strong>Ab 119 EUR inkl. MwSt³</strong>
+                                <strong>{text.tag}</strong>
                             </span>
                             <div/>
                             <span className={"text"} style={{fontSize: "smaller", color: "#ffffff"}}>
-                                Kostenvoranschlag möglich.
+                                {text.tagLower}
                             </span>
                         </div>
                         <div style={isMobile ? {height: "30px"} : {width: "10%"}}></div>
@@ -116,7 +85,7 @@ export default function DevelopmentWindow() {
                                 padding: "6px",
                                 width: "240px",
                             }}>
-                                Anfrage stellen
+                                {text.button}
                             </div>
                         </div>
                     </div>

@@ -1,0 +1,36 @@
+.rootContainer {
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+}
+
+.spacer {
+  height: 10vh;
+}
+
+.alignmentContainer {
+  width: 100%;
+  vertical-align: middle;
+  display: flex;
+  flex-direction: column;
+  max-width: 1300px;
+  justify-self: center;
+  align-self: center;
+}
+
+.innerContainer {
+  padding: 15px;
+  height: 100%;
+  width: 85%;
+  align-self: center;
+  flex-direction: column;
+  flex: none;
+}
+
+.titleContainer {
+  color: white;
+  align-items: center;
+}
