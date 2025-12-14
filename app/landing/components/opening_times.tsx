@@ -107,7 +107,7 @@ export default function OpeningTimes() {
                         display: "flex",
                         padding: "0.5rem",
                         flexDirection: "row"
-                    }}>{value.justClosed ? "Geschlossen" : value.hoursStart + " : "}{value.justClosed ? "" : value.minutesStart + " - "}{value.justClosed ? "" : value.hoursEnd + " : "}{value.justClosed ? "" : value.minutesEnd}</div>
+                    }}>{value.justClosed ? "Geschlossen" : value.hoursStart.toString().padStart(2, '0') + " : "}{value.justClosed ? "" : value.minutesStart.toString().padStart(2, '0') + " - "}{value.justClosed ? "" : value.hoursEnd.toString().padStart(2, '0') + " : "}{value.justClosed ? "" : value.minutesEnd.toString().padStart(2, '0')}</div>
 
                 </div>
             ))}
