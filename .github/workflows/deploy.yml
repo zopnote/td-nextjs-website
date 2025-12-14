@@ -49,4 +49,4 @@ jobs:
             tar -xzf site.tar.gz
             rm site.tar.gz
             npm install --omit=dev
-            pm2 restart td-nextjs-website || pm2 start npm --name "td-nextjs-website" -- start
+            pm2 restart td-website || pm2 start npm --name "td-website" --start
