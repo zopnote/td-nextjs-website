@@ -88,8 +88,10 @@ export default function Prices() {
             }}></div>
             <div style={{
                 maxWidth: "1600px",
+                display: "flex",
+                flexDirection: "column",
                 justifySelf: "center",
-                alignSelf: "center"
+                alignSelf: "center",
             }}>
                 <div className={"title"} style={{
                     width: "80%",
