@@ -43,7 +43,9 @@ export default function Development() {
             <div className={styles.spacer}></div>
             <div className={styles.alignmentContainer}>
                 <div className={styles.innerContainer}>
-                    <div className={`title flex-row flex ${styles.innerContainer}`}>
+                    <div className={`title flex-row flex ${styles.innerContainer}`} style={{
+                        color: "white"
+                    }}>
                         {text.title}
                             <div style={{width: "12px"}}/>
                             <Code size={42}/>
